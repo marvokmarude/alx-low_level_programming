@@ -1,57 +1,30 @@
-#include <stdio.h>
-
-
+#include "main.h"
 
 /**
- *
- *  * main - program that prints the numbers from 1 to 100
- *
- *   * But for multiples of three print Fizz
- *
- *    * and for the multiples of five print Buzz
- *
- *     * Return: 0.
- *
- *      */
+ * print_triangle - function that prints a square, followed by a new line
+ * @size: size of triangle
+ * Return: nothing.
+ */
 
-
-
-int main(void)
-
+void print_triangle(int size)
 {
+	int row, col, aux;
 
-		int num;
-
-
-
-			for (num = 1; num <= 100; num++)
-
-					{
-
-								if (num % 3 == 0 && num % 5 == 0)
-
-												printf("FizzBuzz ");
-
-										else if (num % 3 == 0 && num % 5 != 0)
-
-														printf("Fizz ");
-
-												else if (num == 100)
-
-																printf("Buzz");
-
-														else if (num % 5 == 0 && num % 3 != 0)
-
-																		printf("Buzz ");
-
-																else
-
-																				printf("%d ", num);
-
-																	}
-
-				printf("\n");
-
-					return (0);
-
+	if (size > 0)
+	{
+		for (row = 0; row < size; row++)
+		{
+			for (col = 0; col < size; col++)
+			{
+				aux = (size - row) - 1;
+				if (col < aux)
+					_putchar(' ');
+				else
+					_putchar(35);
+			}
+			_putchar('\n');
+		}
+	}
+	else
+		_putchar('\n');
 }
