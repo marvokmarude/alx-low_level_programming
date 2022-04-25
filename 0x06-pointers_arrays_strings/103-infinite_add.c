@@ -66,15 +66,3 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	r[i] = '\0';
 	return (rev_string(r));
 }
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
