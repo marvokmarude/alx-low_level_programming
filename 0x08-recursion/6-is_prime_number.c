@@ -1,103 +1,51 @@
 #include "main.h"
 
-
-
 /**
- *
- *  * _strlen_recursion - function that returns the length of a string
- *
- *   *
- *
- *    * @s: string to receive
- *
- *     *
- *
- *      * Return: int
- *
- *       */
+ * is_prime_number - determine if a number is a prime number
+ * @n: int number
+ * Return: 1 if prime, 0 otherwise
+ */
 
-
-
-
-
-int _strlen_recursion(char *s)
-
+int is_prime_number(int n)
 {
-
-		if (*s == '\0')
-
-					return (0);
-
-			s++;
-
-				return (1 + _strlen_recursion(s));
-
+	if (n < 2)
+		return (0);
+	if (n < 4)
+		return (1);
+	return (hai(n, 2));
 }
 
-
-
 /**
- *
- *  * get_pal - check if is 0 or 1
- *
- *   * @s: input string
- *
- *    * @len: length
- *
- *     * Return: int
- *
- *      */
+ * _sqrt - return square root of number
+ * @x: number
+ * @i: number incrementer acting as divisor
+ * Return: square root of `x`
+ */
 
-
-
-int get_pal(char *s, int len)
-
+int _sqrt(int x, int i)
 {
+	int square;
 
-		if (*s != *(s + len - 1))
-
-					return (0);
-
-			else if (*s == '\0')
-
-						return (1);
-
-				return (get_pal(s + 1, len - 2));
-
+	square = i * i;
+	if (square >= x)
+		return (i);
+	else
+		return (_sqrt(x, i + 1));
 }
 
-
-
 /**
- *
- *  * is_palindrome - returns 1 if a string is a palindrome and 0 if not.
- *
- *   * @s: input char
- *
- *    *
- *
- *     * Return: int
- *
- *      */
+ * hai - helper function, recursive steps taken
+ * @n: number given to original function is_prime_number
+ * @d: incrementer divisor
+ * Return: 0 if not prime, 1 if prime
+ */
 
-
-
-int is_palindrome(char *s)
-
+int hai(int n, int d)
 {
-
-		int len;
-
-
-
-			len = _strlen_recursion(s);
-
-				if (len <= 1)
-
-							return (1);
-
-					return (get_pal(s, len));
-
+	if (n % d == 0)
+		return (0);
+	else if (_sqrt(n, 1) < d)
+		return (1);
+	else
+		return (hai(n, d + 1));
 }
-
-© 2022 GitHub, Inc.
